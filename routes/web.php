@@ -20,6 +20,7 @@ use App\Http\Controllers\ShopController;
 
 
 Route::get('/', [ShopController::class, 'index']);
+Route::get('/mycart', [Shopcontroller::class, 'mycart'])->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
