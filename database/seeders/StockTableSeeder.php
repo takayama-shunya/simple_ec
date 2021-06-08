@@ -14,7 +14,7 @@ class StockTableSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('stocks')->truncate(); //2回目実行の際にシーダー情報をクリア
+       DB::table('stocks')->truncate(); //2回目実行の際にシーダー情報をクリア　一括削除
        DB::table('stocks')->insert([
            'name' => 'フィルムカメラ',
            'detail' => '1960年式のカメラです',
@@ -127,5 +127,6 @@ class StockTableSeeder extends Seeder
            'fee' => 84200,
            'imgpath' => 'mobile.jpg',
        ]);
+
     }
 }

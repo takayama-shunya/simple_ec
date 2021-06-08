@@ -9,8 +9,8 @@ class Stock extends Model
 {
     use HasFactory;
 
-    public function carts()
+    public function users()
     {
-        return $this->hasMany(Cart::class);
+        // return $this->belongsToMany(User::class, 'carts');
     } 
 }

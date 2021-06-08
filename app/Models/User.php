@@ -41,9 +41,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function carts()
+    public function stocks()
     {
-        return $this->hasMany(Cart::class);
+        return $this->belongsToMany(Stock::class, 'carts');
     }
 
 }
