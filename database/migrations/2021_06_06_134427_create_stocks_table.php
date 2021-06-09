@@ -20,6 +20,7 @@ class CreateStocksTable extends Migration
             $table->string('detail','500');
             $table->integer('fee');
             $table->string('imgpath','200');
+            $table->unsignedInteger('user_id')->onDelete('cascade');
         });
     }
 

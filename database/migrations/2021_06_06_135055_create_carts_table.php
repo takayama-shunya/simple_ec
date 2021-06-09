@@ -14,12 +14,13 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->Increments('id');
             $table->timestamps();
-            $table->unsignedInteger('stock_id');
-            $table->unsignedInteger('user_id');
-            // $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('stock_id')->onDelete('cascade');
+            $table->unsignedInteger('user_id')->onDelete('cascade');
+            $table->primary(['stock_id','user_id']);
+            // $table->foreignId('stock_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -33,3 +34,4 @@ class CreateCartsTable extends Migration
         Schema::dropIfExists('carts');
     }
 }
+
