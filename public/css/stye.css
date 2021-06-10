@@ -12,18 +12,24 @@
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 62.5%;/*rem算出をしやすくするために*/
+  font-size: 1rem;
+  /* font-size: 62.5%;rem算出をしやすくするために */
 }
+
+/* body {
+  font-size: 1rem;
+} */
+
 
 .btn,
 a.btn,
 button.btn {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem;
+  padding: 1rem 2rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -36,7 +42,6 @@ button.btn {
   text-decoration: none;
   letter-spacing: 0.1em;
   color: #212529;
-  border-radius: 0.5rem;
 }
 
 .fa-position-left {
@@ -50,29 +55,28 @@ button.btn {
   right: 1rem;
 }
 
-.btn--blue,
-a.btn--blue {
+.btn--blue {
   background-color: #3161a0;
   color: #fff;
 }
 
-.btn--blue:hover,
-a.btn--blue:hover {
+
+.btn--blue:hover {
   color: #fff;
   background: #3161a0;
 }
 
-a.btn--blue.btn--cubic {
+.btn--blue.btn--cubic {
   border-bottom: 5px solid #00459f;
 }
 
-a.btn--blue.btn--cubic:hover {
+.btn--blue.btn--cubic:hover {
   margin-top: 3px;
   border-bottom: 2px solid #00459f;
 }
 
-a.btn--radius {
-  border-radius: 100vh;
+.btn--radius {
+  border-radius: 1.5rem;
 }
 
 .fa-position-right {

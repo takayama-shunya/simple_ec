@@ -10,7 +10,7 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $stocks = Stock::simplePaginate(6);
+        $stocks = Stock::orderBy('created_at', 'asc')->paginate(10);
         return view('shop',compact('stocks'));
     }
 
