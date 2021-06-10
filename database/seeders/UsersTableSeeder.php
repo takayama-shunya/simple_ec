@@ -21,13 +21,13 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@icloud.com',
-            'password' => 'password',
+            'password' => bcrypt('password'),            
             'admin' => true,
         ]);
         DB::table('users')->insert([
             'name' => 'test',
             'email' => 'test@icloud.com',
-            'password' => 'password',
+            'password' => bcrypt('password'),
             'admin' => false,
         ]);
 

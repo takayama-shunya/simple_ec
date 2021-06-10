@@ -19,6 +19,7 @@ class CreateCartsTable extends Migration
             $table->unsignedInteger('stock_id')->onDelete('cascade');
             $table->unsignedInteger('user_id')->onDelete('cascade');
             $table->primary(['stock_id','user_id']);
+            $table->integer('stock_number');
             // $table->foreignId('stock_id')->constrained()->onDelete('cascade');　foreignIdメソッドはunsignedBigIntegerのエイリアス
             // $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });

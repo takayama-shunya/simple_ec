@@ -23,8 +23,12 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                </div>
+                <!-- フラッシュメッセージ -->
+                @if (session('flash_message'))
+                    <div class="flash_message">
+                        {{ session('flash_message') }}
+                    </div>
+                @endif        
             </header>
 
             <!-- Page Content -->

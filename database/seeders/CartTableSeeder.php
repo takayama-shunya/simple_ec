@@ -19,18 +19,22 @@ class CartTableSeeder extends Seeder
         DB::table('carts')->insert([
             'stock_id' => 1,
             'user_id' => 1,
+            'stock_number' => 1,
         ]);
         DB::table('carts')->insert([
             'stock_id' => 2,
             'user_id' => 1,
+            'stock_number' => 1,
         ]);
         DB::table('carts')->insert([
             'stock_id' => 1,
             'user_id' => 2,
+            'stock_number' => 1,
         ]);
         DB::table('carts')->insert([
             'stock_id' => 2,
             'user_id' => 2,
+            'stock_number' => 1,
         ]);
 
 

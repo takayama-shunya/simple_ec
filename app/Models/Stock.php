@@ -12,5 +12,10 @@ class Stock extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'carts');
-    } 
+    }
+    
+    // public function carts()
+    // {
+    //     return $this->hasMany(Cart::class);
+    // }
 }

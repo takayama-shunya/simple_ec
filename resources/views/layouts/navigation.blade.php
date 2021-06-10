@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                    @auth
+                    <x-nav-link :href="route('mycart')" :active="request()->routeIs('mycart')">
+                        {{ __('Cart') }}
+                    </x-nav-link>
+                    @endauth
+
                 </div>
             </div>
 
