@@ -12,14 +12,24 @@
                </div>
                <div>
                @foreach($stocks as $stock)
+                    <div>
                       {{$stock->name}} <br>
                       {{$stock->fee}}円<br>
                       <img src="/image/{{$stock->imgpath}}" alt="" class="incart" >
                       <br>
                       {{$stock->detail}} <br>
+                      <form action="mycart" method="post">
+                        @csrf
+                        <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                        <input type="number" name="number" value="1" min="1" max="5">
+                        <input type="submit" value="カートに入れる">
+                        <button >
+                          <a href="" class="btn btn--blue btn--radius btn--cubic">PUSH！<i class="fas fa-angle-right fa-position-right"></i></a>
+                        </button>
+                      </form>
+                    </div>
                  @endforeach
                  {{$stocks->links()}} 
-
                </div>
            </div>
        </div>
