@@ -12,18 +12,20 @@
                </div>
                <div>
                 @foreach($my_carts as $cart)
-                <p class="pb-2">{{$cart->stock->name}} : {{$cart->stock->fee}}円</p>
+                <p class="pb-12">{{$cart->stock->name}} : {{$cart->stock->fee}}円</p>
                       <p class="pb-2"><img src="/image/{{$cart->stock->imgpath}}" alt="" class="incart" ></p>
+                      <p class="pb-2"><img src="/images/noimage.png" alt="" class="incart" ></p>
                       <p class="pb-2">{{$cart->stock->detail}}</p>
-                      <p class="pb-2">{{$cart->stock_number}}</p>
-                      <form action="mycart" method="post">
+                      <p class="pb-2">{{$cart->stock_number}}個</p>
+                      <form action="/mycart{stock->id}" method="post">
                         @csrf
+                        @method('delete')
                         <input type="hidden" name="stock_id" value="{{ $cart->stock->id }}">
                         <!-- <input type="number" name="number" value="1" min="1" max="5"> -->
-                        <!-- <input type="submit" value="カートに入れる"> -->
-                        <button class="btn btn--blue btn--radius btn--cubic mx-8">
+                        <button class="btn btn--red btn--radius btn--cubic mx-8">
                           カートから消す<i class="fas fa-angle-right fa-position-right"></i>
                         </button>
+                      </form>
                 @endforeach
                </div>
            </div>

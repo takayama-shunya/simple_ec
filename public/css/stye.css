@@ -66,6 +66,18 @@ button.btn {
   background: #3161a0;
 }
 
+.btn--red {
+  background-color: #9f0000;
+  color: #fff;
+}
+
+
+.btn--red:hover {
+  color: #fff;
+  background: #9e5151;
+}
+
+
 .btn--blue.btn--cubic {
   border-bottom: 5px solid #00459f;
 }
@@ -74,6 +86,16 @@ button.btn {
   margin-top: 3px;
   border-bottom: 2px solid #00459f;
 }
+
+.btn--red.btn--cubic {
+  border-bottom: 5px solid #9f0000;
+}
+
+.btn--red.btn--cubic:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #9e5151;
+}
+
 
 .btn--radius {
   border-radius: 1.5rem;
