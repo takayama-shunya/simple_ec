@@ -9,10 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class  MycartController extends Controller
 {
-    public function index()
+    public function mycarts()
     {
         $user_id = Auth::id(); 
-        $my_carts = Cart::where('user_id',$user_id)->get();
+        return Cart::where('user_id',$user_id)->get();
+    }
+
+    public function index()
+    {
+        $my_carts = $this->mycarts();
         return view('mycart', compact('my_carts'));
     }
 
@@ -52,6 +57,16 @@ class  MycartController extends Controller
             session()->flash('flash_message', '失敗しました');
             return redirect('/mycart');
         }
+    }
+
+    public function payment()
+    {
+        $my_carts = $this->mycarts();
+        $prices = $my_carts->map(function ($cart) {
+          return $cart->stock_number * $cart->stock->fee;
+        });
+        $total_price = $prices->sum();
+        return view('payment', compact('my_carts', 'total_price'));
     }
 
 }

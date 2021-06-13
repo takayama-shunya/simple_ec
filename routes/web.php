@@ -25,6 +25,7 @@ Route::get('/', [ShopController::class, 'index'])->name('home');
 Route::post('/mycart', [MycartController::class, 'store'])->middleware(['auth']);
 Route::get('/mycart', [MycartController::class, 'index'])->middleware(['auth'])->name('mycart');
 Route::delete('/mycart{id}', [MycartController::class, 'destroy'])->middleware(['auth']);
+Route::get('/mycart/payment', [MycartController::class, 'payment'])->middleware(['auth'])->name('payment');
 
 
 Route::get('/dashboard', function () {
