@@ -9,10 +9,16 @@ class Cart extends Model
 {
     use HasFactory;
 
-    // public function stock()
-    // {
-    //     return $this->belongsTo(Stock::class);
-    // }
+    protected $fillable = [
+        'user_id',
+        'stock_id',
+        'stock_number',
+    ];
+
+    public function stock()
+    {
+        return $this->belongsTo(Stock::class);
+    }
 
     // public function user() 
     // {

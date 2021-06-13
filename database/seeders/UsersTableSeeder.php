@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
 class UsersTableSeeder extends Seeder
@@ -15,7 +16,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // factory(User::class, 2)->create();    
-        \App\Models\User::factory()->count(2)->create();
+        // \App\Models\User::factory()->count(2)->create();
+        DB::table('users')->truncate(); //2回目実行の際にシーダー情報をクリア　一括削除
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@icloud.com',
+            'password' => bcrypt('password'),            
+            'admin' => true,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'test',
+            'email' => 'test@icloud.com',
+            'password' => bcrypt('password'),
+            'admin' => false,
+        ]);
+
     }
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\MycartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,12 @@ use App\Http\Controllers\ShopController;
 // });
 
 
-Route::get('/', [ShopController::class, 'index']);
-Route::get('/mycart', [Shopcontroller::class, 'mycart'])->middleware(['auth']);
+Route::get('/', [ShopController::class, 'index'])->name('home');
+Route::post('/mycart', [MycartController::class, 'store'])->middleware(['auth']);
+Route::get('/mycart', [MycartController::class, 'index'])->middleware(['auth'])->name('mycart');
+Route::delete('/mycart{id}', [MycartController::class, 'destroy'])->middleware(['auth']);
+Route::get('/mycart/payment', [MycartController::class, 'payment'])->middleware(['auth'])->name('payment');
+Route::post('/mycart/settlement', [MycartController::class, 'settlement'])->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {

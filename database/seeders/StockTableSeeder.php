@@ -20,6 +20,7 @@ class StockTableSeeder extends Seeder
            'detail' => '1960年式のカメラです',
            'fee' => 200000,
            'imgpath' => 'filmcamera.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -27,6 +28,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'ノイズキャンセリングがついてます',
            'fee' => 20000,
            'imgpath' => 'iyahon.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -34,6 +36,7 @@ class StockTableSeeder extends Seeder
            'detail' => '1980年式の掛け時計です',
            'fee' => 120000,
            'imgpath' => 'clock.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -41,6 +44,7 @@ class StockTableSeeder extends Seeder
            'detail' => '珍しい商品です',
            'fee' => 120000,
            'imgpath' => 'earth.jpg',
+           'user_id' => 1,
        ]);
 
 
@@ -49,6 +53,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'プレゼントにどうぞ',
            'fee' => 9800,
            'imgpath' => 'watch.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -56,6 +61,7 @@ class StockTableSeeder extends Seeder
            'detail' => '最新式です',
            'fee' => 79800,
            'imgpath' => 'lens.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -63,13 +69,15 @@ class StockTableSeeder extends Seeder
            'detail' => 'パーティにどうぞ',
            'fee' => 800,
            'imgpath' => 'shanpan.jpg',
-       ]);
+           'user_id' => 1,
+           ]);
 
        DB::table('stocks')->insert([
            'name' => 'ビール',
            'detail' => '大量生産されたビールです',
            'fee' => 200,
            'imgpath' => 'beer.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -77,6 +85,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'かなり珍しいやかんです',
            'fee' => 1200,
            'imgpath' => 'yakan.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -84,6 +93,7 @@ class StockTableSeeder extends Seeder
            'detail' => '米30Kgです',
            'fee' => 11200,
            'imgpath' => 'kome.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -91,6 +101,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'ジャンク品です',
            'fee' => 11200,
            'imgpath' => 'pc.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -98,6 +109,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'ヤマハ製のエントリーモデルです',
            'fee' => 25600,
            'imgpath' => 'aguiter.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -105,6 +117,7 @@ class StockTableSeeder extends Seeder
            'detail' => '初心者向けのエントリーモデルです',
            'fee' => 15600,
            'imgpath' => 'eguiter.jpg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -112,6 +125,7 @@ class StockTableSeeder extends Seeder
            'detail' => '乾燥する季節の必需品',
            'fee' => 3200,
            'imgpath' => 'steamer.jpeg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -119,6 +133,7 @@ class StockTableSeeder extends Seeder
            'detail' => 'ゲーミングマウスです',
            'fee' => 4200,
            'imgpath' => 'mouse.jpeg',
+           'user_id' => 1,
        ]);
 
        DB::table('stocks')->insert([
@@ -126,6 +141,7 @@ class StockTableSeeder extends Seeder
            'detail' => '中古美品です',
            'fee' => 84200,
            'imgpath' => 'mobile.jpg',
+           'user_id' => 1,
        ]);
 
     }

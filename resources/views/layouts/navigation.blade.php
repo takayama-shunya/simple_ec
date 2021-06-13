@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 header">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -15,6 +15,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                    @auth
+                    <x-nav-link :href="route('mycart')" :active="request()->routeIs('mycart')">
+                        <!-- {{ __('Cart') }} -->
+                        <div>
+                          {{ $mycart_count }}
+                          <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </x-nav-link>
+                    @endauth
+
                 </div>
             </div>
 
