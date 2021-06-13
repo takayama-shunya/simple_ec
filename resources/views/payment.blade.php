@@ -8,6 +8,20 @@
            <h1 style="color:#555555; text-align:center; font-size:1.2em; padding:24px 0px; font-weight:bold;">カート商品一覧</h1>
            <div class="py-12">
               合計金額　{{$total_price}}円
+              <form action="/mycart/settlement" method="POST">
+                {{ csrf_field() }}
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ config('payment.stripe_public_key') }}"
+                    data-amount={{ $total_price }}
+                    data-name="Stripe Demo"
+                    data-label="決済をする"
+                    data-description="これはStripeのデモです。"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-currency="JPY">  
+                  </script>
+              </form>
            </div>
            <div class="pb-12">
               @foreach($my_carts as $cart)

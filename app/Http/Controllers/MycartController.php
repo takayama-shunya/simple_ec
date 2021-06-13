@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Stripe;
+use Stripe\Charge;
+use Stripe\Customer;
+use Exception;
 
 
 class  MycartController extends Controller
@@ -67,6 +71,31 @@ class  MycartController extends Controller
         });
         $total_price = $prices->sum();
         return view('payment', compact('my_carts', 'total_price'));
+    }
+
+    public function settlement(Request $request)
+    {
+        try
+        {
+            Stripe::setApiKey(config('payment.stripe_secret_key'));
+
+            $customer = Customer::create(array(
+                'email' => $request->stripeEmail,
+                'source' => $request->stripeToken
+            ));
+
+            $charge = Charge::create(array(
+                'customer' => $customer->id,
+                'amount' => 1000,
+                'currency' => 'jpy'
+            ));
+            session()->flash('flash_message', '支払い完了しました');
+            return redirect('/mycart');
+        }
+        catch(Exception $e)
+        {
+            return $e->getMessage();
+        }    
     }
 
 }

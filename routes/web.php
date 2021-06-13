@@ -26,6 +26,7 @@ Route::post('/mycart', [MycartController::class, 'store'])->middleware(['auth'])
 Route::get('/mycart', [MycartController::class, 'index'])->middleware(['auth'])->name('mycart');
 Route::delete('/mycart{id}', [MycartController::class, 'destroy'])->middleware(['auth']);
 Route::get('/mycart/payment', [MycartController::class, 'payment'])->middleware(['auth'])->name('payment');
+Route::post('/mycart/settlement', [MycartController::class, 'settlement'])->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
