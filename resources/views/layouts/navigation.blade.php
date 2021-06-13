@@ -20,7 +20,11 @@
                     </x-nav-link>
                     @auth
                     <x-nav-link :href="route('mycart')" :active="request()->routeIs('mycart')">
-                        {{ __('Cart') }}
+                        <!-- {{ __('Cart') }} -->
+                        <div>
+                          {{ $mycart_count }}
+                          <i class="fas fa-shopping-cart"></i>
+                        </div>
                     </x-nav-link>
                     @endauth
 
