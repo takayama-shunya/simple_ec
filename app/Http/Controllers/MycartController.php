@@ -89,6 +89,8 @@ class  MycartController extends Controller
                 'amount' => 1000,
                 'currency' => 'jpy'
             ));
+            $user_id = Auth::id(); 
+            Cart::where('user_id',$user_id)->delete();
             session()->flash('flash_message', '支払い完了しました');
             return redirect('/mycart');
         }
