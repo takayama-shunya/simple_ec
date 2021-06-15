@@ -11,7 +11,7 @@ use Stripe\Customer;
 use Exception;
 
 
-class  MycartController extends Controller
+class  MycartsController extends Controller
 {
     public function mycarts()
     {

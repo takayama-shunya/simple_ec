@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\MycartController;
+use App\Http\Controllers\ShopsController;
+use App\Http\Controllers\MycartsController;
 
 
 /*
@@ -21,12 +21,15 @@ use App\Http\Controllers\MycartController;
 // });
 
 
-Route::get('/', [ShopController::class, 'index'])->name('home');
-Route::post('/mycart', [MycartController::class, 'store'])->middleware(['auth']);
-Route::get('/mycart', [MycartController::class, 'index'])->middleware(['auth'])->name('mycart');
-Route::delete('/mycart{id}', [MycartController::class, 'destroy'])->middleware(['auth']);
-Route::get('/mycart/payment', [MycartController::class, 'payment'])->middleware(['auth'])->name('payment');
-Route::post('/mycart/settlement', [MycartController::class, 'settlement'])->middleware(['auth']);
+Route::get('/', [ShopsController::class, 'index'])->name('home');
+Route::resource('shops', ShopsController::class)->except(['index',])->middleware('admin');
+
+
+Route::post('/mycart', [MycartsController::class, 'store'])->middleware(['auth']);
+Route::get('/mycart', [MycartsController::class, 'index'])->middleware(['auth'])->name('mycart');
+Route::delete('/mycart{id}', [MycartsController::class, 'destroy'])->middleware(['auth']);
+Route::get('/mycart/payment', [MycartsController::class, 'payment'])->middleware(['auth'])->name('payment');
+Route::post('/mycart/settlement', [MycartsController::class, 'settlement'])->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
