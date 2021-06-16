@@ -38,7 +38,7 @@ class  MycartsController extends Controller
             return redirect('/');
         }
         else{
-            session()->flash('flash_message', '失敗しました');
+            session()->flash('flash_message', 'カートに選択済です');
             return redirect('/');
         }
  
