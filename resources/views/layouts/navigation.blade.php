@@ -26,6 +26,10 @@
                           <i class="fas fa-shopping-cart"></i>
                         </div>
                     </x-nav-link>
+                    <x-nav-link :href="route('shops.index')" :active="request()->routeIs('shops.index')">
+                        {{ __('Index') }}
+                    </x-nav-link>
+
                     @endauth
 
                 </div>
