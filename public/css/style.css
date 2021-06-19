@@ -127,3 +127,20 @@ button.btn {
   border-bottom: 7px solid #987c1e;
   border-left: 4px solid #ffed8b;
 }
+
+
+.btn--create,
+a.btn--create {  
+  background-color: rgb(117, 192, 117);
+  color: #fff;
+}
+
+.btn-show {
+  background-color: rgb(103, 165, 207);
+  color: #fff;
+}
+
+.btn-destroy {
+  background-color: rgb(243, 98, 118);
+  color: #fff;
+}

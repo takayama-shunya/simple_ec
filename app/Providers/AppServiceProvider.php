@@ -35,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $mycart_count = Cart::where('user_id', $user_id)->count();
             $view->with('mycart_count', $mycart_count);
         });
+
+        View::share('user_id', Auth::id());
     }
 }

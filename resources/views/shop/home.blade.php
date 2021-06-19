@@ -14,7 +14,11 @@
                 @foreach($stocks as $stock)
                     <div class="pb-12">
                       <p class="pb-2">{{$stock->name}} : {{$stock->fee}}円</p>
-                      <p class="pb-2"><img src="/images/noimage.png" alt="" class="incart" ></p>
+                      @if ( $stock->imgpath == null )
+                        <p class="pb-2"><img src="/images/noimage.png" alt="" class="incart" ></p>
+                      @else
+                        <p class="pb-2"><img src="/images/{{$stock->imgpath}}" alt="" class="incart" ></p>
+                      @endif
                       <p class="pb-2">{{$stock->detail}}</p>
                       <form action="mycart" method="post">
                         @csrf
