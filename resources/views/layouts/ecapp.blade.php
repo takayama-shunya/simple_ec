@@ -17,6 +17,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/style.js') }}" defer></script>
         <!-- <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ asset('js/payment.js') }}"></script> -->
     </head>

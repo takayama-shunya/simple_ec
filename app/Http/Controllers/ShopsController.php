@@ -64,4 +64,19 @@ class ShopsController extends Controller
        return redirect()->back();
     }
 
+    public function destroy(Request $request)
+    {
+        $stock = Stock::find($request->stock_id);
+        // ->firstOrFail();
+        if($stock->delete()){
+            session()->flash('flash_message', '商品を削除しました');
+            return redirect('/shops');
+        }
+        else{
+            session()->flash('flash_message', '失敗しました');
+            return redirect('/shops');
+        }
+    }
+
+
 }
