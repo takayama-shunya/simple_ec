@@ -37,23 +37,22 @@ class ShopsController extends Controller
         if($request->imgpath != null) {
             $file = $request->file('imgpath');
             $fileName = Str::random(10).'.'.$file->getClientOriginalExtension();
-            Image::make($file)->save(public_path('images/'.$fileName));
+            Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
         }
        
        $stock = new Stock;
-       $stock->user_id = $request->user()->id;
-       $form = $request->all();
-       unset($form['_token']);
-
-    //    $stock->name = $request->name;
-    //    $stock->detail = $request->detail;
-    //    $stock->imgpath = $request->imgpath;
-    //    $stock->fee = $request->fee;
+    //    $stock->user_id = $request->user()->id;
     //    $form = $request->all();
     //    unset($form['_token']);
+
+       $stock->name = $request->name;
+       $stock->user_id = $request->user()->id;
+       $stock->detail = $request->detail;
+       $stock->imgpath = $fileName;
+       $stock->fee = $request->fee;
        
-       if($stock->fill($form)->save()) {
-    //    if($stock->save()) {
+    //    if($stock->fill($form)->save()) {
+       if($stock->save()) {
             session()->flash('flash_message', '商品作成しました');
             return redirect('/shops');
        }
