@@ -7,6 +7,7 @@ use App\Models\Stock;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class ShopsController extends Controller
 {
@@ -31,7 +32,7 @@ class ShopsController extends Controller
     public function store(Request $request)
     {
         Validator::make($request->all(), [
-            'image' => 'file|image|max:2000|nullable'
+            'imgpath' => 'file|image|max:2000|nullable'
         ])->validate();  
 
         if($request->imgpath != null) {
@@ -78,5 +79,16 @@ class ShopsController extends Controller
         }
     }
 
+    public function show(Request $request)
+    {
+        $stock = Stock::find($request->stock_id);
+        return view('shop/show', compact('stock'));
+    }
+
+    public function edit(Request $request)
+    {
+        $stock = Stock::find($request->stock_id);
+        return view('shop/edit', compact('stock'));
+    }
 
 }

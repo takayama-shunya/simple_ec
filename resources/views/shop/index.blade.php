@@ -31,6 +31,7 @@
                         <td class="border">
                           <form action="/shops/{$stock->id}" method="post">
                             @csrf
+                            @method('get')
                             <input type="hidden" name="stock_id" value="{{ $stock->id }}">
                             <button class="btn btn-show">詳細</button>
                           </form>                        
