@@ -17,16 +17,16 @@
 
               <div class="pb-12">
                 <p class="pb-2">【商品名】</p>
-                <p class="pb-4">{{$stock->name}}</p>xxx
+                <p class="pb-4">{{$stock->name}}</p>
                 <p class="pb-2">【価格】</p>
                 <p class="pb-4">{{$stock->fee}}</p>
                 <p class="pb-2">【詳細】</p>
                 <p class="pb-4">{{$stock->detail}}</p>
                 <p class="pb-2">【画像】</p>
                 @if ( $stock->imgpath == null )
-                  <p class="pb-2 img"><img src="/images/noimage.png" alt="" class="incart" ></p>
+                  <p class="pb-2 img"><img src="{{ asset('storage/images/noimage.png') }}" alt="" class="incart" ></p>
                 @else
-                  <p class="pb-2 img"><img src="/images/{{$stock->imgpath}}" alt="" class="incart" ></p>
+                  <p class="pb-2 img"><img src="{{ asset('storage/images/' . $stock->imgpath) }}" alt="" class="incart" ></p>
                 @endif
               </div>
               </div>

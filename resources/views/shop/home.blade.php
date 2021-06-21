@@ -15,9 +15,9 @@
                     <div class="pb-12">
                       <p class="pb-2">{{$stock->name}} : {{$stock->fee}}円</p>
                       @if ( $stock->imgpath == null )
-                        <p class="pb-2 img"><img src="/images/noimage.png" alt="" class="incart" ></p>
-                      @else
-                        <p class="pb-2 img"><img src="/images/{{$stock->imgpath}}" alt="" class="incart" ></p>
+                        <p class="pb-2 img"><img src="{{ asset('storage/images/noimage.png') }}" alt="" class="incart" ></p>
+                      @else 
+                        <p class="pb-2 img"><img src="{{ asset('storage/images/' . $stock->imgpath) }}" alt="" class="incart" ></p>
                       @endif
                       <p class="pb-2">{{$stock->detail}}</p>
                       <form action="mycart" method="post">

@@ -17,7 +17,7 @@
            <h1 style="color:#555555; text-align:center; font-size:1.2em; padding:24px 0px; font-weight:bold;">商品作成</h1>
            <div class="w-1/2">
              <form action="{{route('shops.store')}}" method="post" enctype="multipart/form-data">
-              {{csrf_field() }}
+              @csrf
               <div class="pb-2">
                 名前<br><input type="text" name="name" value="{{old('name')}}">
               </div>

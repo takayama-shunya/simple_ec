@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stock;
 use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 
 class ShopsController extends Controller
@@ -23,7 +24,6 @@ class ShopsController extends Controller
         return view('shop/index',compact('stocks'));
     }
 
-
     public function create()
     {
         return view('shop/create');
@@ -35,13 +35,15 @@ class ShopsController extends Controller
             'imgpath' => 'file|image|max:2000|nullable'
         ])->validate();  
 
+        $stock = new Stock;
+
         if($request->imgpath != null) {
             $file = $request->file('imgpath');
-            $fileName = Str::random(10).'.'.$file->getClientOriginalExtension();
-            Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
+            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
+            // $imgpath = storage_path('app/public/images');
+            Image::make($file)->resize(500, 500)->save(storage_path('app/public/images/'.$filename));
+            // Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
         }
-       
-       $stock = new Stock;
     //    $stock->user_id = $request->user()->id;
     //    $form = $request->all();
     //    unset($form['_token']);
@@ -49,7 +51,7 @@ class ShopsController extends Controller
        $stock->name = $request->name;
        $stock->user_id = $request->user()->id;
        $stock->detail = $request->detail;
-       $stock->imgpath = $fileName;
+       $stock->imgpath = $filename;
        $stock->fee = $request->fee;
        
     //    if($stock->fill($form)->save()) {
@@ -68,8 +70,10 @@ class ShopsController extends Controller
     public function destroy(Request $request)
     {
         $stock = Stock::find($request->stock_id);
+        $filename = $stock->imgpath;
         // ->firstOrFail();
         if($stock->delete()){
+            if($filename != null)Storage::delete('public/images/' .$filename);
             session()->flash('flash_message', '商品を削除しました');
             return redirect('/shops');
         }
@@ -89,6 +93,45 @@ class ShopsController extends Controller
     {
         $stock = Stock::find($request->stock_id);
         return view('shop/edit', compact('stock'));
+    }
+
+    public function update(Request $request)
+    {
+        Validator::make($request->all(), [
+            'imgpath' => 'file|image|max:2000|nullable'
+        ])->validate();  
+
+        $stock = Stock::find($request->stock_id);
+        $before_filename = $stock->imgpath;
+
+        if($request->imgpath != null) {
+            $file = $request->file('imgpath');
+            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
+            Image::make($file)->resize(500, 500)->save(storage_path('app/public/images/'.$filename));
+            if($before_filename != null)Storage::delete('public/images/' .$before_filename);
+        }
+        else {
+            $filename = $before_filename;
+        }
+       
+       $stock->name = $request->name;
+       $stock->user_id = $request->user()->id;
+       $stock->detail = $request->detail;
+       $stock->imgpath = $filename;
+       $stock->fee = $request->fee;
+       
+    //    if($stock->fill($form)->save()) {
+       if($stock->save()) {
+            session()->flash('flash_message', '商品編集しました');
+            return redirect('/shops');
+       }
+       else {
+            session()->flash('flash_message', 'エラーが発生しました');
+            return redirect('/shops');
+       }
+  
+       return redirect()->back();
+
     }
 
 }
