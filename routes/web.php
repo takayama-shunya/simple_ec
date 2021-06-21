@@ -20,10 +20,11 @@ use App\Http\Controllers\MycartsController;
 //     return view('welcome');
 // });
 
+Route::middleware(['admin'])->group(function () {
+    Route::resource('shops', ShopsController::class);
+});
 
-Route::get('/', [ShopsController::class, 'index'])->name('home');
-Route::resource('shops', ShopsController::class)->except(['index',])->middleware('admin');
-
+Route::get('/', [ShopsController::class, 'home'])->name('home');
 
 Route::post('/mycart', [MycartsController::class, 'store'])->middleware(['auth']);
 Route::get('/mycart', [MycartsController::class, 'index'])->middleware(['auth'])->name('mycart');

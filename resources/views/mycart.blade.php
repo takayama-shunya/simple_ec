@@ -18,8 +18,11 @@
                 @foreach($my_carts as $cart)
                   <div class="pb-12"> 
                       <p class="pb-2">{{$cart->stock->name}} : {{$cart->stock->fee}}円</p>
-                      <p class="pb-2"><img src="/image/{{$cart->stock->imgpath}}" alt="" class="incart" ></p>
-                      <p class="pb-2"><img src="/images/noimage.png" alt="" class="incart" ></p>
+                      @if ($cart->stock->imgpath == null )
+                        <p class="pb-2"><img img src="{{ asset('storage/images/noimage.png') }}" alt="" class="incart img" ></p>
+                      @else
+                        <p class="pb-2"><img img src="{{ asset('storage/images/' . $cart->stock->imgpath) }}" alt="" class="incart img" ></p>
+                      @endif
                       <p class="pb-2">{{$cart->stock->detail}}</p>
                       <p class="pb-2">{{$cart->stock_number}}個</p>
                       <form action="/mycart{stock->id}" method="post">

@@ -9,6 +9,15 @@ class Stock extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'detail',
+        'fee',
+        'imgpath',
+        'user_id',
+    ];
+
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'carts');

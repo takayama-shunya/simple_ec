@@ -19,7 +19,7 @@ class StockTableSeeder extends Seeder
            'name' => 'フィルムカメラ',
            'detail' => '1960年式のカメラです',
            'fee' => 200000,
-           'imgpath' => 'filmcamera.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -27,7 +27,7 @@ class StockTableSeeder extends Seeder
            'name' => 'イヤホン',
            'detail' => 'ノイズキャンセリングがついてます',
            'fee' => 20000,
-           'imgpath' => 'iyahon.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -35,7 +35,7 @@ class StockTableSeeder extends Seeder
            'name' => '時計',
            'detail' => '1980年式の掛け時計です',
            'fee' => 120000,
-           'imgpath' => 'clock.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -43,7 +43,7 @@ class StockTableSeeder extends Seeder
            'name' => '地球儀',
            'detail' => '珍しい商品です',
            'fee' => 120000,
-           'imgpath' => 'earth.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -52,7 +52,7 @@ class StockTableSeeder extends Seeder
            'name' => '腕時計',
            'detail' => 'プレゼントにどうぞ',
            'fee' => 9800,
-           'imgpath' => 'watch.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -60,7 +60,7 @@ class StockTableSeeder extends Seeder
            'name' => 'カメラレンズ35mm',
            'detail' => '最新式です',
            'fee' => 79800,
-           'imgpath' => 'lens.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -68,7 +68,7 @@ class StockTableSeeder extends Seeder
            'name' => 'シャンパン',
            'detail' => 'パーティにどうぞ',
            'fee' => 800,
-           'imgpath' => 'shanpan.jpg',
+           'imgpath' => '',
            'user_id' => 1,
            ]);
 
@@ -76,7 +76,7 @@ class StockTableSeeder extends Seeder
            'name' => 'ビール',
            'detail' => '大量生産されたビールです',
            'fee' => 200,
-           'imgpath' => 'beer.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -84,7 +84,7 @@ class StockTableSeeder extends Seeder
            'name' => 'やかん',
            'detail' => 'かなり珍しいやかんです',
            'fee' => 1200,
-           'imgpath' => 'yakan.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -92,7 +92,7 @@ class StockTableSeeder extends Seeder
            'name' => '精米',
            'detail' => '米30Kgです',
            'fee' => 11200,
-           'imgpath' => 'kome.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -100,7 +100,7 @@ class StockTableSeeder extends Seeder
            'name' => 'パソコン',
            'detail' => 'ジャンク品です',
            'fee' => 11200,
-           'imgpath' => 'pc.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -108,7 +108,7 @@ class StockTableSeeder extends Seeder
            'name' => 'アコースティックギター',
            'detail' => 'ヤマハ製のエントリーモデルです',
            'fee' => 25600,
-           'imgpath' => 'aguiter.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -116,7 +116,7 @@ class StockTableSeeder extends Seeder
            'name' => 'エレキギター',
            'detail' => '初心者向けのエントリーモデルです',
            'fee' => 15600,
-           'imgpath' => 'eguiter.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -124,7 +124,7 @@ class StockTableSeeder extends Seeder
            'name' => '加湿器',
            'detail' => '乾燥する季節の必需品',
            'fee' => 3200,
-           'imgpath' => 'steamer.jpeg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -132,7 +132,7 @@ class StockTableSeeder extends Seeder
            'name' => 'マウス',
            'detail' => 'ゲーミングマウスです',
            'fee' => 4200,
-           'imgpath' => 'mouse.jpeg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 
@@ -140,7 +140,7 @@ class StockTableSeeder extends Seeder
            'name' => 'Android Garxy10',
            'detail' => '中古美品です',
            'fee' => 84200,
-           'imgpath' => 'mobile.jpg',
+           'imgpath' => '',
            'user_id' => 1,
        ]);
 

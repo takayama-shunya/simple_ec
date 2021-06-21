@@ -1,32 +1,60 @@
 @extends('layouts.ecapp')
 
-
 @section('content')
-<div class="container-fluid">
+<div class="container">
    <div class="">
        <div class="mx-auto" style="max-width:1200px">
            <h1 style="color:#555555; text-align:center; font-size:1.2em; padding:24px 0px; font-weight:bold;">商品一覧</h1>
            <div class="">
-               <div class="d-flex flex-row flex-wrap pb-6">
-                   商品一覧
+               <div class="pb-6">
+                  商品一覧
+               </div>
+               <div class="flex">
+                <div class="float-left">{{$stocks->links()}}</div>
+                <div class="pl-12 pb-6">
+                    <a href="{{ route('shops.create') }}" class="btn btn--create">新規作成</a>
+                </div>
                </div>
                <div>
-                @foreach($stocks as $stock)
-                    <div class="pb-12">
-                      <p class="pb-2">{{$stock->name}} : {{$stock->fee}}円</p>
-                      <p class="pb-2"><img src="/images/noimage.png" alt="" class="incart" ></p>
-                      <p class="pb-2">{{$stock->detail}}</p>
-                      <form action="mycart" method="post">
-                        @csrf
-                        <input type="hidden" name="stock_id" value="{{ $stock->id }}">
-                        <input type="number" name="number" value="1" min="1" max="5">
-                        <!-- <input type="submit" value="カートに入れる"> -->
-                        <button class="btn btn--blue btn--radius btn--cubic mx-8">
-                          カートにいれる<i class="fas fa-angle-right fa-position-right"></i>
-                        </button>
-                      </form>
-                    </div>
-                @endforeach
+                  <table class="table-auto border border-collapse w-full">
+                    <thead>
+                      <tr>
+                        <th class="border">ID</th>
+                        <th class="border">商品名</th>
+                        <th class="border">値段</th>
+                        <th class="border"></th>
+                      </tr>
+                    </thead>
+                    @foreach($stocks as $stock)
+                    <tbody>
+                      <tr>
+                        <td class="border">{{$stock->id}}</td>
+                        <td class="border">{{$stock->name}}</td>
+                        <td class="border">{{$stock->fee}}</td>
+                        <td class="border">
+                          <div class="md:flex md:flrex-row md:justify-evenly">
+                            <div class="">
+                              <form action="/shops/{$stock->id}" method="post">
+                                @csrf
+                                @method('get')
+                                <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                                <button class="btn btn-show">詳細</button>
+                              </form>
+                            </div> 
+                            <div class="">                       
+                              <form action="/shops/{$stock->id}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                                <button class="btn btn-destroy" onClick="delete_alert(event);return false;" >削除</button>
+                              </form>
+                            </div>
+                          </div> 
+                        </td>
+                      </tr>
+                    </tbody>
+                    @endforeach
+                  </table>
                </div>
                <div class="float-left">{{$stocks->links()}}</div>
            </div>
