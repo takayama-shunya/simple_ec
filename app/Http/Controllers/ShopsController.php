@@ -44,6 +44,9 @@ class ShopsController extends Controller
             Image::make($file)->resize(500, 500)->save(storage_path('app/public/images/'.$filename));
             // Image::make($file)->resize(300, 300)->save(public_path('images/'.$fileName));
         }
+        else {
+            $filename = '';
+        }
     //    $stock->user_id = $request->user()->id;
     //    $form = $request->all();
     //    unset($form['_token']);
