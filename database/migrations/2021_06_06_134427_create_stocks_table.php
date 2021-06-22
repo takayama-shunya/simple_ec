@@ -21,6 +21,8 @@ class CreateStocksTable extends Migration
             $table->integer('fee');
             $table->string('imgpath','200')->nullable();
             $table->unsignedInteger('user_id')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreignId('user_id')->constrained('users');
         });
     }
 

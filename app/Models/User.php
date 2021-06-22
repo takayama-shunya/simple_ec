@@ -46,4 +46,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Stock::class, 'carts');
     }
 
+    function IdentityProviders()
+    {
+        // IdentityProviderモデルと紐付ける 1対多の関係
+        return $this->hasMany(IdentityProvider::class);
+    }
+
 }
