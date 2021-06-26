@@ -51,6 +51,11 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            <div class="form-group row">
+            <label for="name" class="col-sm-4 col-form-label text-md-right">Login With</label>
+            <a href="{{ url('login/line')}}" class="btn btn-social-icon btn-line"><i class="fab fa-line fa-5x"></i></a>
+            <a href="{{ url('login/google')}}" class="btn btn-social-icon btn-google"><i class="fab fa-google fa-5x"></i></a>
+            </div>  
         </form>
     </x-auth-card>
 </x-guest-layout>

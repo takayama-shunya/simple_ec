@@ -33,13 +33,13 @@ return [
     'line' => [
         'client_id'     => env('LINE_CLIENT_ID'),
         'client_secret' => env('LINE_CLIENT_SECRET'),
-        'redirect'      => '/login/line/callback',
+        'redirect'      => env('LINE_REDIRECT_URI')    
     ],
 
-    'twitter' => [
-        'client_id'     => env('TWITTER_CLIENT_ID'),
-        'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect'      => '/login/twitter/callback',
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('APP_URL') .'/login/google/callback',
     ],
 
 ];
