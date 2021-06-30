@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Stock;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,9 +25,10 @@ class StockFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'detail' => $this->faker->detail(),
-            'fee' => Str::random(0, 1000000),
+            'detail' => Str::random('alnum', 16),
+            'fee' => mt_rand(1, 1000000),
             'imgpath' => "",    
+            'user_id' => User::factory(),
         ];
     }
 }

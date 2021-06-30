@@ -21,8 +21,8 @@ use App\Http\Controllers\Auth\LoginController;
 //     return view('welcome');
 // });
 
-Route::middleware(['admin'])->group(function () {
-    Route::resource('shops', ShopsController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('shops', ShopsController::class)->middleware(['admin']);
 });
 
 Route::get('/', [ShopsController::class, 'home'])->name('home');
