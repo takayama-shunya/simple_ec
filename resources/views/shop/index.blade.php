@@ -35,15 +35,18 @@
                           <div class="md:flex md:flrex-row md:justify-evenly">
                             <div class="">
                               <!-- <form action="/shops/{$stock->id}" method="post"> -->
-                              <form action="{{ route('shops.show', [$stock]) }}">
+                              <!-- <button class="btn btn-show">
+                                <a href="{{ route('shops.show', [$stock->id]) }}">詳細</a>
+                              </button> -->
+                              <form action="{{ route('shops.show', [$stock->id]) }}">
                                 @csrf
                                 @method('get')
-                                <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                                <!-- <input type="hidden" name="stock_id" value="{{ $stock->id }}"> -->
                                 <button class="btn btn-show">詳細</button>
                               </form>
                             </div> 
                             <div class="">                       
-                              <form action="{{ route('shops.destroy', [$stock]) }}" method="post">
+                              <form action="{{ route('shops.destroy', [$stock->id]) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="stock_id" value="{{ $stock->id }}">

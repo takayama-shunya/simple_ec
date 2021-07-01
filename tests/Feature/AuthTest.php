@@ -54,8 +54,8 @@ class AuthTest extends TestCase
         $user->get(route('shops.index'))->assertStatus(200);
         $user->get(route('shops.create'))->assertStatus(200);
         // $user->get('/shops/{$stock->id}')->assertStatus(200);
-        // $user->get(route('shops.show', $stock))->assertStatus(200);
-        // $user->get(route('shops.edit', $stock))->assertStatus(200);
+        $user->get(route('shops.show', [$stock->id]))->assertStatus(200);
+        $user->get(route('shops.edit', [$stock->id]))->assertStatus(200);
 
     }
 }

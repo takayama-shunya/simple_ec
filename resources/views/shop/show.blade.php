@@ -7,10 +7,11 @@
            <h1 style="color:#555555; text-align:center; font-size:1.2em; padding:24px 0px; font-weight:bold;">商品詳細</h1>
            <div class="">
               <div class="pb-6">
-                <form action="/shops/{$stock->id}/edit" method="post">
+                <!-- <form action="/shops/{$stock->id}/edit" method="post"> -->
+                <form action="{{ route('shops.edit', [$stock->id]) }}" method="post">
                   @csrf
                   @method('get')
-                  <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                  <!-- <input type="hidden" name="stock_id" value="{{ $stock->id }}"> -->
                   <button class="btn btn--create">編集</button>
                 </form>                        
               </div>

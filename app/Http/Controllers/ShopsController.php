@@ -88,13 +88,16 @@ class ShopsController extends Controller
 
     public function show(Request $request)
     {
-        $stock = Stock::find($request->stock_id);
+        $stock = Stock::find($request->shop);
+        // $stock = Stock::find($request->stock_id);
+
         return view('shop/show', compact('stock'));
     }
 
     public function edit(Request $request)
     {
-        $stock = Stock::find($request->stock_id);
+        // $stock = Stock::find($request->stock_id);
+        $stock = Stock::find($request->shop);
         return view('shop/edit', compact('stock'));
     }
 
