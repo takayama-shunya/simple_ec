@@ -34,7 +34,8 @@
                         <td class="border">
                           <div class="md:flex md:flrex-row md:justify-evenly">
                             <div class="">
-                              <form action="/shops/{$stock->id}" method="post">
+                              <!-- <form action="/shops/{$stock->id}" method="post"> -->
+                              <form action="{{ route('shops.show', [$stock]) }}">
                                 @csrf
                                 @method('get')
                                 <input type="hidden" name="stock_id" value="{{ $stock->id }}">
@@ -42,7 +43,7 @@
                               </form>
                             </div> 
                             <div class="">                       
-                              <form action="/shops/{$stock->id}" method="post">
+                              <form action="{{ route('shops.destroy', [$stock]) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="stock_id" value="{{ $stock->id }}">

@@ -16,7 +16,7 @@
        <div class="mx-auto" style="max-width:1200px">
            <h1 style="color:#555555; text-align:center; font-size:1.2em; padding:24px 0px; font-weight:bold;">商品編集</h1>
            <div class="w-1/2">
-             <form action="{{route('shops.update', [$stock->id])}}" method="post" enctype="multipart/form-data">
+             <form action="{{route('shops.update', [$stock])}}" method="post" enctype="multipart/form-data">
               @csrf
               @method('patch')
               <input type="hidden" name="stock_id" value="{{ $stock->id }}">

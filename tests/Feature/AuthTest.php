@@ -18,11 +18,12 @@ class AuthTest extends TestCase
      * @return void
      */
 
-    // public function stock_set()
+    // public function set_stock()
     // {
-    //     $this->stock = Stock::factory()->create();
+    //     $stock = Stock::factory()->create();
+    //     return $stock; 
     // }
-    
+        
     public function test_login_no_auth()
     {
         $stock = Stock::factory()->create();
@@ -32,14 +33,29 @@ class AuthTest extends TestCase
 
         $this->get(route('shops.index'))->assertRedirect(route('login'));
         $this->get(route('shops.create'))->assertRedirect(route('login'));
-        $this->get(route('shops.show', $stock))->assertRedirect(route('login'));
+        $this->get(route('shops.show', [$stock->id]))->assertRedirect(route('login'));
         $this->get(route('shops.edit', $stock))->assertRedirect(route('login'));
 
-        // $this->get('/mycart')->assertRedirect(route('login'));
-        // $this->get('/mycart/payment')->assertRedirect(route('login'));
+        $this->get('/mycart')->assertRedirect(route('login'));
+        $this->get('/mycart/payment')->assertRedirect(route('login'));
 
-        // $user = $this->actingAs(
-        //     User::factory()->create()
-        // );
+
+    }
+
+    public function test_login_auth()
+    {
+        $user = $this->actingAs(User::factory()->create());
+        $stock = Stock::factory()->create();
+
+        $user->get('/mycart')->assertStatus(200);
+        $user->get('/mycart/payment')->assertStatus(200);
+
+
+        $user->get(route('shops.index'))->assertStatus(200);
+        $user->get(route('shops.create'))->assertStatus(200);
+        // $user->get('/shops/{$stock->id}')->assertStatus(200);
+        // $user->get(route('shops.show', $stock))->assertStatus(200);
+        // $user->get(route('shops.edit', $stock))->assertStatus(200);
+
     }
 }
