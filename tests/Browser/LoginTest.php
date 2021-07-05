@@ -33,10 +33,24 @@ class LoginTest extends DuskTestCase
             $browser->visit('/login')
                     ->type('email', $user->email)
                     ->type('password', 'password')
-                    // ->press('Login')
                     ->press('@login-button')
                     ->assertPathIs('/dashboard');
         });
 
+    }
+
+    public function create_user_login()
+    {
+        $this->browse(function ($browser) {
+            $browser->visit('/register')
+                    ->type('email', 'browser@test.com')
+                    ->type('password', 'password')
+                    ->tyoe('password_confirmation', 'password')
+                    ->press('@register')
+                    ->assertPathIs('/dashboard');
+        });
+
+        $user = User::where('email', 'browser@test.com')->get();
+        $user->delete();
     }
 }

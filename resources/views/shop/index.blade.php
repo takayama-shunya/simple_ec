@@ -12,7 +12,7 @@
                <div class="flex">
                 <div class="float-left">{{$stocks->links()}}</div>
                 <div class="pl-12 pb-6">
-                    <a href="{{ route('shops.create') }}" class="btn btn--create">新規作成</a>
+                    <a href="{{ route('shops.create') }}" class="btn btn--create" dusk="shops-create-btn">新規作成</a>
                 </div>
                </div>
                <div>
@@ -42,7 +42,7 @@
                                 @csrf
                                 @method('get')
                                 <!-- <input type="hidden" name="stock_id" value="{{ $stock->id }}"> -->
-                                <button class="btn btn-show">詳細</button>
+                                <button class="btn btn-show" dusk="stock-show-{{$stock->id}}">詳細</button>
                               </form>
                             </div> 
                             <div class="">                       
