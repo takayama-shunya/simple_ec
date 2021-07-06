@@ -31,7 +31,7 @@
                 画像<br><input type="file" name="imgpath" value="{{old('imgpath')}}">
               </div>
               <div class="pt-6">
-                <input type="submit" value="登録する" duck="create-btn">
+                <input type="submit" value="登録する" dusk="create-btn">
               </div>
              </form>
            </div>
