@@ -35,16 +35,43 @@ class ShopsTest extends DuskTestCase
 
         $stock = Stock::where('detail', 'create test')->first();
 
-        //show
+        //show update 
         $this->browse(function (Browser $browser) use ($stock) {
             $browser->visit('/shops?page=2')
                     // ->scrollIntoView("@stock-show-{$stock->id}")
                     ->press("@stock-show-{$stock->id}")
-                    ->assertSee('create test');
+                    ->assertSee('create test')
+                    ->press('@shops-edit-btn');
+            $browser->type('detail', 'update test')
+                    ->press('@update-btn');
+            
+            $this->assertDatabaseHas('stocks', [
+                'detail' => 'update test',
+            ]);
+
+
+
+            
+        });
+
+        //destroy
+        $this->browse(function (Browser $browser) use ($stock) {
+            $browser->visit('/shops?page=2')
+                    ->press("@stock-destroy-{$stock->id}")
+                    ->acceptDialog();
+                    // ->whenAvailable('.modal', function ($modal) {
+                    //     $modal->assertSee('本当に削除しますか？')
+                    //           ->press('OK');
+                    // });
+            
+            $this->assertDatabaseMissing('stocks', [
+                'name' => 'updateテスト',
+            ]);
+            
 
         });
 
-        $stock->delete();
-        $this->assertDeleted($stock);
+        // $stock->delete();
+        // $this->assertDeleted($stock);
     }
 }

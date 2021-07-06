@@ -50,7 +50,7 @@
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="stock_id" value="{{ $stock->id }}">
-                                <button class="btn btn-destroy" onClick="delete_alert(event);return false;" >削除</button>
+                                <button class="btn btn-destroy" onClick="delete_alert(event);return false;" dusk="stock-destroy-{{$stock->id}}">削除</button>
                               </form>
                             </div>
                           </div> 

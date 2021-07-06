@@ -33,7 +33,7 @@
                 画像<br><input type="file" name="imgpath" value="{{$stock->imgpath}}">
               </div>
               <div class="pt-6">
-                <input type="submit" value="更新する">
+                <input type="submit" value="更新する" dusk="update-btn">
               </div>
              </form>
            </div>

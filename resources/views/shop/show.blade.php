@@ -12,7 +12,7 @@
                   @csrf
                   @method('get')
                   <!-- <input type="hidden" name="stock_id" value="{{ $stock->id }}"> -->
-                  <button class="btn btn--create">編集</button>
+                  <button class="btn btn--create" dusk="shops-edit-btn">編集</button>
                 </form>                        
               </div>
 
